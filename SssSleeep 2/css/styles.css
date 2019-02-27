@@ -1,7 +1,10 @@
 @font-face {
     font-family: 'MonotypeCorsiva';
     src: url('../Fonts/monotype-corsiva1.ttf') format('truetype');
-
+}
+@font-face {
+    font-family: 'AlgerianOne';
+    src: url("../Fonts/AlgerianOne.ttf");
 }
 
 html {
@@ -10,8 +13,9 @@ html {
 }
 
 header {
-    color: mediumblue;
+    color: darkblue;
     font-size: 42pt;
+    font-family: "AlgerianOne", sans-serif;
 }
 
 #logo {
@@ -23,6 +27,7 @@ header {
 .shortDesc {
     text-indent: 1.5em;
     padding-top: 60px;
+    padding-bottom: 40px;
     margin: 20px;
     font-size: 26pt;
     font-family: "MonotypeCorsiva", sans-serif;
@@ -32,9 +37,21 @@ header {
 }
 
 .hz {
-
+    font-size: 26pt;
+    color: rebeccapurple;
+    text-decoration: underline;
+    font-weight: bold;
 }
 
-.history {
+.history1 {
+    color: darkred;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-style: italic;
+    font-size: 20pt;
+}
 
+.history2 {
+    color: red;
+    font-size: 20pt;
 }
