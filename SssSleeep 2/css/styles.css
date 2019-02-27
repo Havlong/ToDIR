@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'MonotypeCorsiva';
+    src: url('../Fonts/monotype-corsiva1.ttf') format('truetype');
+
+}
+
+html {
+    color: black;
+    background: antiquewhite;
+}
+
+header {
+    color: mediumblue;
+    font-size: 42pt;
+}
+
+#logo {
+    float: left;
+    width: 350px;
+    height: 350px;
+}
+
+.shortDesc {
+    text-indent: 1.5em;
+    padding-top: 60px;
+    margin: 20px;
+    font-size: 26pt;
+    font-family: "MonotypeCorsiva", sans-serif;
+    color: forestgreen;
+    text-align: center;
+    font-weight: bold;
+}
+
+.hz {
+
+}
+
+.history {
+
+}
