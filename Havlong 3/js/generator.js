@@ -3,7 +3,7 @@
 const str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 let a = document.getElementsByClassName('password');
 
-function generatePassword() {
+function generate() {
     if (a.length === 0) {
         let newPassword = "";
         for (let i = 0; i < 8; ++i) {
@@ -11,7 +11,8 @@ function generatePassword() {
         }
         let newElement = document.createElement('tr');
         newElement.innerHTML =
-            '<td class="passwordId">' + 1 + '</td><td class="password">' + newPassword + '</td>';
+            '<th class="passwordId">' + (a.length + 1) + '</th>' +
+            '<td class="password">' + newPassword + '</td>';
         document.getElementById('passwords').appendChild(newElement);
     } else {
         let passwords = [];
@@ -28,7 +29,8 @@ function generatePassword() {
         }
         let newElement = document.createElement('tr');
         newElement.innerHTML =
-            '<td class="passwordId">' + (a.length + 1) + '</td><td class="password">' + newPassword + '</td>';
+            '<th class="passwordId">' + (a.length + 1) + '</th>' +
+            '<td class="password">' + newPassword + '</td>';
         document.getElementById('passwords').appendChild(newElement);
     }
 }
