@@ -1,0 +1,54 @@
+* {
+    font-family: "Times New Roman", "Noto Sans", sans-serif;
+}
+
+html {
+    color: black;
+    background: #80698e;
+}
+
+header {
+    font-size: 20pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+img {
+    float: right;
+}
+
+li {
+    list-style-type: square;
+}
+
+#history-heading {
+    text-indent: 0;
+    font-size: 16pt;
+    font-weight: bold;
+    border: 2px solid black;
+    padding: 2px;
+}
+
+#crossing {
+    text-indent: 0;
+    font-size: 16pt;
+    font-weight: bold;
+    border: 2px solid black;
+    padding: 2px;
+}
+
+.description {
+    text-indent: 1.5em;
+    font-size: 14pt;
+}
+
+
+.crossings {
+    font-size: 18pt;
+}
+
+
+.history {
+    text-indent: 1.5em;
+    font-size: 14pt;
+}
