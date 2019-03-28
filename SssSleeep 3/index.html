@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <title>JSlab</title>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/javaJSscript.js"></script>
 </head>
+
 <body>
 
 <header>
@@ -13,27 +15,26 @@
 </header>
 
 <div class="all">
-
     <div class="rock">
-        <p id="clckRock"><img src="pictures/stone.png" alt="stone.png"></p>
+        <img alt="stone.png" id="rockroll" src="pictures/stone.png">
         <p>Камень</p>
     </div>
 
     <div class="scissors">
-        <p id="clckSci"><img src="pictures/scissors.png" alt="scissors.png"></p>
+        <img alt="scissors.png" id="scissor" src="pictures/scissors.png">
         <p>Ножницы</p>
     </div>
 
     <div class="paper">
-        <p id="clckPaper"><img src="pictures/paper.png" alt="paper.png"></p>
+        <img alt="paper.png" id="paperroll" src="pictures/paper.png">
         <p>Бумага</p>
     </div>
 
-    <div class="notification">
-        <button type="button" onclick="start()">пуск</button>
+    <div class="notification" id="note">
+        <button onclick="start()" type="button">пуск</button>
     </div>
-
 </div>
 
 </body>
+
 </html>
