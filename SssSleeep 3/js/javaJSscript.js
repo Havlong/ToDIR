@@ -7,6 +7,7 @@ function getRandomInt(min, max) {
 }
 
 let wasPressed = false;
+let arr = [];
 
 async function start() {
 
@@ -73,7 +74,7 @@ async function start() {
     document.getElementById('paperroll').removeEventListener('click', paper);
 
     if(!wasPressed)
-        pBot.innerText = 'Бот: *Насмехается* Ха! Ты опоздал, я победил!';
+        pBot.innerText = 'Бот: *Насмехается* Ха! Я выбрал ' + botAnswer + ', а ты опоздал, я победил!';
 
     wasPressed = false;
 
