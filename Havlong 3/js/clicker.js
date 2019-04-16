@@ -2,6 +2,7 @@
 "use strict";
 
 let buttons = document.getElementsByClassName('myBtn');
+
 function click() {
     if (buttons.length > 0) {
         let button = buttons[0];

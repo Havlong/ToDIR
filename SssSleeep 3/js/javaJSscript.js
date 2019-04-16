@@ -59,7 +59,7 @@ async function start() {
         letsPlay('бумага', botAnswer, pBot);
     };
 
-    let remov = function() {
+    let remov = function () {
         remove(notif, pNotif, body, divBot, button)
     };
 
@@ -73,7 +73,7 @@ async function start() {
     document.getElementById('scissor').removeEventListener('click', scissors);
     document.getElementById('paperroll').removeEventListener('click', paper);
 
-    if(!wasPressed)
+    if (!wasPressed)
         pBot.innerText = 'Бот: *Насмехается* Ха! Я выбрал ' + botAnswer + ', а ты опоздал, я победил!';
 
     wasPressed = false;
