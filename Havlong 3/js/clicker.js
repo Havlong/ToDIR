@@ -1,5 +1,4 @@
 "use strict";
-"use strict";
 
 let buttons = document.getElementsByClassName('myBtn');
 
