@@ -31,7 +31,7 @@ let tasks = [
     new Task('radio', 'Выберите произведение, написанное НЕ Ильфом и Петровым',
         '3', ['Двенадцать стульев', 'Светлая личность', 'Князь Серебряный', 'Золотой телёнок']),
     new Task('text', 'Назовите фамилию автора произведения "Мастер и Маргарита"',
-        'world', [])
+        'булгаков', [])
 ];
 
 let currentTask = 0;
@@ -71,9 +71,9 @@ document.addEventListener('DOMContentLoaded', function () {
     radio4 = document.querySelector('#radio4').parentNode;
     panels = document.getElementsByClassName('panel');
     alertDisplay = document.getElementById('alert');
-    alertText = document.getElementsByClassName('alertText')[0];
-    wrapper.style.display = 'none';
+    alertText = document.getElementsByClassName('right')[0];
     alertDisplay.style.display = 'none';
+    wrapper.style.display = 'none';
     for (let panel of panels) {
         panel.style.display = 'none';
     }
@@ -83,8 +83,11 @@ function retry() {
     document.getElementById('controlNext').onclick = next;
     document.getElementById('controlReturn').onclick = prev;
     document.getElementById('answerButton').onclick = check;
+    alertDisplay.style.display = 'none';
     shuffle();
     currentTask = 0;
+    rightlyDone = 0;
+    currentlyDone = 0;
     for (let task of tasks) {
         task.userAnswer = '';
     }
@@ -146,8 +149,21 @@ function check() {
         if (tasks[currentTask].userAnswer === tasks[currentTask].answer)
             rightlyDone++;
     }
-
     update();
+    if (currentlyDone === tasks.length) {
+        alertDisplay.style.display = 'block';
+        wrapper.style.display = 'none';
+        for (let panel of panels) {
+            panel.style.display = 'none';
+        }
+        alertText.innerHTML = `${rightlyDone}`;
+        document.getElementById('controlNext').onclick = function () {
+        };
+        document.getElementById('controlReturn').onclick = function () {
+        };
+        document.getElementById('answerButton').onclick = function () {
+        };
+    }
 }
 
 function update() {
