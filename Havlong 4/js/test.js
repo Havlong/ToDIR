@@ -347,10 +347,13 @@ function updateColor() {
         case 'text': {
             if (tasks[currentTask].userAnswer === '')
                 document.answerForm.textField.style.color = '#000000';
-            else if (tasks[currentTask].userAnswer === tasks[currentTask].answer)
-                document.answerForm.textField.style.color = '#16a72f';
-            else
-                document.answerForm.textField.style.color = '#f60011';
+            else {
+                if (tasks[currentTask].userAnswer === tasks[currentTask].answer)
+                    document.answerForm.textField.style.color = '#16a72f';
+                else
+                    document.answerForm.textField.style.color = '#f60011';
+                document.answerForm.textField.value = tasks[currentTask].userAnswer;
+            }
             break;
         }
     }
