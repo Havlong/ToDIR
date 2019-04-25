@@ -45,7 +45,7 @@ function shuffle() {
 
 }
 
-let doneDisplay, totalDisplay, curDisplay, taskDesc,
+let doneDisplay, totalDisplay, curDisplay, taskDesc, results,
     wrapper, panels, alertDisplay, alertText,
     checkbox1, checkbox2, checkbox3, checkbox4,
     selection1, selection2, selection3, selection4,
@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
     radio2 = document.querySelector('#radio2').parentNode;
     radio3 = document.querySelector('#radio3').parentNode;
     radio4 = document.querySelector('#radio4').parentNode;
+    results = document.querySelector('#results');
     panels = document.getElementsByClassName('panel');
     alertDisplay = document.getElementById('alert');
     alertText = document.getElementsByClassName('right')[0];
@@ -83,6 +84,7 @@ function retry() {
     document.getElementById('controlNext').onclick = next;
     document.getElementById('controlReturn').onclick = prev;
     document.getElementById('answerButton').onclick = check;
+    document.getElementById('сontrolStop').onclick = stop;
     alertDisplay.style.display = 'none';
     shuffle();
     currentTask = 0;
@@ -151,19 +153,31 @@ function check() {
     }
     update();
     if (currentlyDone === tasks.length) {
-        alertDisplay.style.display = 'block';
-        wrapper.style.display = 'none';
-        for (let panel of panels) {
-            panel.style.display = 'none';
-        }
-        alertText.innerHTML = `${rightlyDone}`;
-        document.getElementById('controlNext').onclick = function () {
-        };
-        document.getElementById('controlReturn').onclick = function () {
-        };
-        document.getElementById('answerButton').onclick = function () {
-        };
+        stop()
     }
+}
+
+function stop() {
+    alertDisplay.style.display = 'block';
+    wrapper.style.display = 'none';
+    for (let panel of panels) {
+        panel.style.display = 'none';
+    }
+    alertText.innerHTML = `${rightlyDone}`;
+    document.getElementById('controlNext').onclick = function () {
+    };
+    document.getElementById('controlReturn').onclick = function () {
+    };
+    document.getElementById('answerButton').onclick = function () {
+    };
+    let table = '';
+    for (let task of tasks) {
+        table += '<tr>';
+        table += '<td class="' + (task.userAnswer === task.answer ? 'right' : 'false') + '">' + task.userAnswer + '</td>';
+        table += '<td class="' + (task.userAnswer === task.answer ? 'right' : 'false') + '">' + task.answer + '</td>';
+        table += '</tr>';
+    }
+    results.innerHTML = table
 }
 
 function update() {
