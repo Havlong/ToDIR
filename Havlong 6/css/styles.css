@@ -40,3 +40,17 @@ footer {
     border-radius: .4rem;
     overflow-y: scroll;
 }
+
+#content::-webkit-scrollbar {
+    width: 0;
+}
+
+#answerForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.radioPanel {
+    display: flex;
+    flex-direction: column;
+}
