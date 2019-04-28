@@ -23,3 +23,4 @@
 /nbdist/
 /.nb-gradle/
 /build/
+**/jquery-3.4.0.min.js

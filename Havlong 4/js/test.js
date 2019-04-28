@@ -78,6 +78,10 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let panel of panels) {
         panel.style.display = 'none';
     }
+    document.answerForm.onsubmit = function(e) {
+        e.preventDefault();
+        check();
+    }
 });
 
 function retry() {
