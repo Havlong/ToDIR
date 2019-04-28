@@ -4,10 +4,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
     $valid = true;
     if (sizeof($data) == 5) {
-        if (!preg_match("/^[А-Я][а-я]+(-[а-я]+)*$/", $data['firstName'])) {
+        if (!preg_match("/^[А-ЯЁ][а-яё]+(-[а-яё]+)*$/u", $data['firstName'])) {
             $valid = false;
         }
-        if (!preg_match("/^[А-Я][а-я]+(-[а-я]+)*$/", $data['lastName'])) {
+        if (!preg_match("/^[А-ЯЁ][а-яё]+(-[а-яё]+)*$/u", $data['lastName'])) {
             $valid = false;
         }
         $complaint = $data['complaint'];
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             && $result != 'criticalIssues') {
             $valid = false;
         }
-        if (!preg_match("/^([А-Яа-я ]:[А-Яа-я ,].)+$/", $data['firstName'])) {
+        if (!preg_match("/^([А-ЯЁа-яё ]+:[А-ЯЁа-яё ,]+[.])*$/u", $data['comment'])) {
             $valid = false;
         }
     } else {
