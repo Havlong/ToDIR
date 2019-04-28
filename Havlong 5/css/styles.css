@@ -54,7 +54,7 @@ footer {
     width: 640px;
     height: 480px;
     border: .2rem solid crimson;
-    background-color: coral;
+    background-color: #ffa955;
 }
 
 #container, #sum, .money, #button {
@@ -93,8 +93,10 @@ footer {
 .money {
     width: 64px;
     height: 64px;
-    padding: .5rem 0;
-    font-size: 2rem;
+    font-size: 2.4rem;
     border-radius: 32px;
-    background: gold;
+    background-image: url("../pictures/Circle_Yellow.png");
+    background-size: 64px 64px;
+    color: rgba(255, 56, 64, 0.9);
+    font-weight: 600;
 }
