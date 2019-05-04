@@ -1,5 +1,4 @@
 <?php
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
     $valid = true;
@@ -38,5 +37,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     echo json_encode(['result' => 'ok', 'valid' => $valid]);
 } else {
-    echo "<h1 style='text-align: center'>This page in none of your concern. Go away</h1>>";
+    echo "<h1 style='text-align: center'>This page in none of your concern. Go away</h1>";
 }
