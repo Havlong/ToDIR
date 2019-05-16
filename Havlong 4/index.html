@@ -8,6 +8,96 @@
     <title>Тестирование по литературе</title>
 </head>
 <body>
+<header>
+    Литература первой половины XX века
+</header>
+<div class="alert" id="alert">
+    <div class="alertText">
+        Ваш результат: <span class="done right">?</span> / <span class="total">?</span>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                Ваш ответ
+            </th>
+            <th>
+                Правильный ответ
+            </th>
+        </tr>
+        </thead>
+        <tbody id="results">
+        </tbody>
+    </table>
+</div>
+<div id="content">
+    <div id="controls">
+        <div class="button" id="controlReturn">
+            Предыдущий вопрос
+        </div>
+        <div class="button" id="controlRetry" onclick="retry()">
+            Начать заново
+        </div>
+        <div class="button" id="controlNext">
+            Следующий вопрос
+        </div>
+        <div class="button" id="сontrolStop">
+            Завершить
+        </div>
+        <div class="filler"></div>
+        <div class="stats">
+            Выполнено <span class="done">?</span> / <span class="total">?</span>
+        </div>
+        <div class="stats">
+            Текущий вопрос: <span id="cur">?</span>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="task">
 
+        </div>
+        <div id="answerPanel">
+            <form id="answerForm" name="answerForm">
+                <div class="panel" id="radioPanel">
+                    <label for="radio1"><input id="radio1" name="radio" type="radio" value="1">Не
+                        установлено</label>
+                    <label for="radio2"><input id="radio2" name="radio" type="radio" value="2">Не
+                        установлено</label>
+                    <label for="radio3"><input id="radio3" name="radio" type="radio" value="3">Не
+                        установлено</label>
+                    <label for="radio4"><input id="radio4" name="radio" type="radio" value="4">Не
+                        установлено</label>
+                </div>
+                <div class="panel" id="checkboxPanel">
+                    <label for="checkbox1"><input id="checkbox1" name="checkbox" type="checkbox">Не
+                        установлено</label>
+                    <label for="checkbox2"><input id="checkbox2" name="checkbox" type="checkbox">Не
+                        установлено</label>
+                    <label for="checkbox3"><input id="checkbox3" name="checkbox" type="checkbox">Не
+                        установлено</label>
+                    <label for="checkbox4"><input id="checkbox4" name="checkbox" type="checkbox">Не
+                        установлено</label>
+                </div>
+                <div class="panel" id="selectionPanel">
+                    <label for="selection"></label>
+                    <select id="selection" name="selection">
+                        <option id="selection1" value="1">Не установлено</option>
+                        <option id="selection2" value="2">Не установлено</option>
+                        <option id="selection3" value="3">Не установлено</option>
+                        <option id="selection4" value="4">Не установлено</option>
+                    </select>
+                </div>
+                <div class="panel" id="textFieldPanel">
+                    <label for="textField">Введите ответ здесь: </label>
+                    <input autocomplete="off" id="textField" name="textField" type="text">
+                </div>
+                <input class="button" id="answerButton" type="submit" value="Ответ">
+            </form>
+        </div>
+    </div>
+</div>
+<footer>
+    Мы рады видеть вас в нашей тестирующей системе
+</footer>
 </body>
 </html>
