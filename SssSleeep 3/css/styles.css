@@ -7,11 +7,33 @@ header {
     text-align: center;
 }
 
+#bot_res {
+    position: absolute;
+    float: top;
+}
+
+#player_res {
+    position: absolute;
+    float: top;
+    margin-top: 200px;
+}
+
+#results {
+    position: absolute;
+    float: top;
+    margin-top: 320px;
+}
+
+#standard_img {
+    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+}
+
 .bot {
     position: absolute;
     left: 30%;
-    padding: 40px;
-
+    margin: 40px;
 }
 
 .all {
@@ -25,6 +47,12 @@ header {
     align-content: center;
     justify-content: center;
     text-align: center;
+}
+
+.unknown {
+    position: absolute;
+    /*display: flex;*/
+    text-align: left;
 }
 
 .notification {
@@ -45,12 +73,12 @@ button {
 }
 
 .rock {
-    padding: 0 200px 200px 0;
+    margin: 0 200px 200px 0;
 
 }
 
 .scissors {
-    padding: 0 0 200px 0;
+    margin: 0 0 200px 0;
 }
 
 .paper {

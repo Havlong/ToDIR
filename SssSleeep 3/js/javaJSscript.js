@@ -6,10 +6,12 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-let wasPressed = false;
-let arr = [];
+let count = 0;
 
 async function start() {
+    let lastPlayersAns = '';
+    let lastBotAns = '';
+    let wasPressed = false;
 
     let notif = document.getElementsByClassName('notification')[0];
     let body = document.getElementsByTagName('body')[0];
@@ -21,87 +23,119 @@ async function start() {
     notif.appendChild(pNotif);
 
     pNotif.innerText = 'цу';
-
     await sleep(1000);
     pNotif.innerText = 'цу-е';
-
     await sleep(1000);
     pNotif.innerText = 'фа!';
 
-    let divBot = document.createElement('div');
-    divBot.className = 'bot';
-    body.insertBefore(divBot, all);
+    let img = document.createElement('img');
+    img.id = 'standard_img';
 
-    let pBot = document.createElement('p');
-    divBot.appendChild(pBot);
-    pBot.innerText = '';
-
-    let randomInt = getRandomInt(1, 3);
-    let botAnswer = '';
-
-    if (randomInt === 1) {
-        botAnswer = 'камень';
-    } else if (randomInt === 2) {
-        botAnswer = 'ножницы';
-    } else {
-        botAnswer = 'бумага';
-    }
-
-    pBot.innerText = 'Бот: *Орёт* Я выбрал ' + botAnswer + '!';
-
+    let player_res = document.getElementById('player_res');
     let rock = function () {
-        letsPlay('камень', botAnswer, pBot);
+        wasPressed = true;
+        img.src = 'pictures/stone.png';
+        img.alt = 'stone.png';
+        lastPlayersAns = 'камень';
+        player_res.appendChild(img);
     };
     let scissors = function () {
-        letsPlay('ножницы', botAnswer, pBot);
+        wasPressed = true;
+        img.src = 'pictures/scissors.png';
+        img.alt = 'scissors.png';
+        lastPlayersAns = 'ножницы';
+        player_res.appendChild(img);
     };
     let paper = function () {
-        letsPlay('бумага', botAnswer, pBot);
+        wasPressed = true;
+        img.src = 'pictures/paper.png';
+        img.alt = 'paper.png';
+        lastPlayersAns = 'бумага';
+        player_res.appendChild(img);
     };
 
-    let remov = function() {
-        remove(notif, pNotif, body, divBot, button)
-    };
+    document.getElementById('rockroll').addEventListener('click', lastPlayersAns = rock);
+    document.getElementById('scissor').addEventListener('click', lastPlayersAns = scissors);
+    document.getElementById('paperroll').addEventListener('click', lastPlayersAns = paper);
+    let divBot = document.createElement('div');
 
-    document.getElementById('rockroll').addEventListener('click', rock);
-    document.getElementById('scissor').addEventListener('click', scissors);
-    document.getElementById('paperroll').addEventListener('click', paper);
+    divBot.className = 'bot';
+    body.insertBefore(divBot, all);
+    let pBot = document.createElement('p');
+    divBot.appendChild(pBot);
 
-    await sleep(500);
+    pBot.innerText = 'Бот: *Думает...*';
+
+    let randomInt = getRandomInt(1, 3);
+    let timeout = getRandomInt(1, 600);
+
+    await sleep(timeout);
+
+    let botImg = document.createElement('img');
+    botImg.id = 'standard_img';
+    if (randomInt === 1) {
+        botImg.src = 'pictures/stone.png';
+        botImg.alt = 'stone.png';
+        lastBotAns = 'камень';
+    } else if (randomInt === 2) {
+        botImg.src = 'pictures/scissors.png';
+        botImg.alt = 'scissors.png';
+        lastBotAns = 'ножницы';
+    } else {
+        botImg.src = 'pictures/paper.png';
+        botImg.alt = 'paper.png';
+        lastBotAns = 'бумага';
+    }
+
+    let bot_res = document.getElementById('bot_res');
+    bot_res.appendChild(botImg);
+
+    pBot.innerText = 'Бот: *Орёт* Я выбрал ' + lastBotAns + '!';
+
+    await sleep(600 - timeout);
 
     document.getElementById('rockroll').removeEventListener('click', rock);
     document.getElementById('scissor').removeEventListener('click', scissors);
     document.getElementById('paperroll').removeEventListener('click', paper);
 
-    if(!wasPressed)
-        pBot.innerText = 'Бот: *Насмехается* Ха! Я выбрал ' + botAnswer + ', а ты опоздал, я победил!';
+    let result = document.createElement('p');
+    let healMe = document.getElementById('results');
 
-    wasPressed = false;
-
-    // await sleep(3000);
-
-    document.getElementById('note').addEventListener('click', remov);
-
-}
-
-function letsPlay(playerAnswer, botAnswer, pBot) {
-
-    wasPressed = true;
-
-    if (playerAnswer === botAnswer) {
-        pBot.innerText = 'Бот: *Говорит* Я выбрал ' + botAnswer + ', и ты ' + playerAnswer + '. Ничья!';
+    if (!wasPressed){
+        pBot.innerText = 'Бот: *Насмехается* Ха! Я выбрал ' + lastBotAns + ', а ты опоздал, я победил!';
+        img = document.createElement('img');
+        img.id = 'standard_img';
+        img.src = 'pictures/error404.png';
+        img.alt = 'error404.png';
+        player_res.appendChild(img);
+        result.innerText = 'Поражение!';
+    } else if (lastPlayersAns === lastBotAns) {
+        pBot.innerText = 'Бот: *Говорит* Я выбрал ' + lastBotAns + ', и ты ' + lastPlayersAns + '. Ничья!';
+        result.innerText = 'Ничья!';
     } else if (
-        (playerAnswer === 'камень' && botAnswer === 'бумага') ||
-        (playerAnswer === 'ножницы' && botAnswer === 'камень') ||
-        (playerAnswer === 'бумага' && botAnswer === 'ножницы')
+        (lastPlayersAns === 'камень' && lastBotAns === 'бумага') ||
+        (lastPlayersAns === 'ножницы' && lastBotAns === 'камень') ||
+        (lastPlayersAns === 'бумага' && lastBotAns === 'ножницы')
     ) {
         pBot.innerText = 'Бот: *Вопит* Я победил!';
-    } else
+        result.innerText = 'Поражение!'
+    } else {
         pBot.innerText = 'Бот: *Молчит*...';
+        result.innerText = 'Победа!'
+    }
 
+    healMe.appendChild(result);
+    count += 1;
+
+    let remov = function () {
+        remove(notif, pNotif, body, divBot, button)
+    };
+    document.getElementById('note').addEventListener('click', remov);
 }
 
 function remove(notif, pNotif, body, divBot, button) {
+    if (count > 2)
+        return;
     notif.removeChild(pNotif);
     body.removeChild(divBot);
     notif.appendChild(button);
