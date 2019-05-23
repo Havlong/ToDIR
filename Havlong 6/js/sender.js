@@ -9,6 +9,9 @@ $(document).ready(function () {
             data: jsonData,
             success: async function (jsonResult) {
                 let result = JSON.parse(jsonResult);
+                let alert = $('#alert');
+                alert
+                    .html(result.message);
                 if (result.result === 'ok') {
                     if (result.valid) {
                         let content = $('div#content')
@@ -19,11 +22,13 @@ $(document).ready(function () {
                         content
                             .css({
                                 backgroundColor: '#eff1d1'
-                            })
+                            });
+                        alert
+                            .html("");
                     } else {
                         let content = $('div#content')
                             .css({
-                                backgroundColor: '#ea554a'
+                                backgroundColor: '#ffa47b'
                             });
                         await sleep(3000);
                         content

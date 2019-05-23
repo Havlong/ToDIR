@@ -4,6 +4,8 @@ let moneyArray = [];
 let sum;
 let moneyIndex = -1, startX = -1, startY = -1;
 let moneyElement = undefined;
+let tries = 0;
+let game = 1;
 
 class Money {
     constructor(x, y, number) {
@@ -23,10 +25,11 @@ $(document).ready(function () {
 });
 
 function start() {
+    tries = 0;
     sum = random(16, 100);
     let sumCopy = sum;
     $('#sum').html(sum);
-    $('#button').click(check);
+    document.getElementById('button').onclick = check;
     let moneyCount = random(6, 12);
     let rightMoneyCount = random(4, moneyCount - 2);
     moneyArray = [];
@@ -74,7 +77,7 @@ function isDistant(x1, y1, x2, y2) {
     return (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) > 4096;
 }
 
-async function check() {
+function check() {
     let curSum = 0;
     $('div.money').each(function () {
         let x = Math.round($(this).position().left);
@@ -83,38 +86,51 @@ async function check() {
             curSum += find(x, y);
         }
     });
+    document.getElementById('button').onclick = doNothing;
+    let element = $('div#sum');
     if (curSum === sum) {
-        let element = $('div#sum');
         element.css({
             backgroundColor: '#3cf03d'
         });
-        $('#button').click(function () {
-        });
-        await sleep(3000);
-        element.css({
-            backgroundColor: '#ffdc48'
-        });
-        start()
+        setTimeout(rightColor, 2000);
     } else {
-        let element = $('div#sum');
+        tries += 1;
         element.css({
             backgroundColor: '#f60011'
         });
-        $('#button').click(function () {
-        });
-        await sleep(3000);
-        element.css({
-            backgroundColor: '#ffdc48'
-        });
+        setTimeout(anotherColor, 2000);
     }
+}
+
+function doNothing() {
+
+}
+
+function rightColor() {
+    let element = $('div#sum');
+    element.css({
+        backgroundColor: '#ffdc48'
+    });
+    document.getElementById('button').onclick = check;
+    let results = document.getElementById('results');
+    results.innerHTML += '<tr><td>' + game +
+        '</td><td>' + (tries + 1) + '</td></tr>';
+    game += 1;
+    tries = 0;
+    start()
+
+}
+
+function anotherColor() {
+    let element = $('div#sum');
+    element.css({
+        backgroundColor: '#ffdc48'
+    });
+    document.getElementById('button').onclick = check;
 }
 
 function random(from, to) {
     return Math.floor(Math.random() * (to - from + 1)) + from;
-}
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function find(x, y) {
