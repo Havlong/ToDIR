@@ -1,3 +1,5 @@
+"use strict";
+
 $(document).ready(function () {
     $(document.answerForm).submit(function (e) {
         e.preventDefault();
