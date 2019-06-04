@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>JQuery</title>
+    <title>Составь сумму</title>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.4.0.min.js"></script>
     <script src="js/game.js"></script>
@@ -13,16 +13,34 @@
     <header>
         Игра &laquo;Составь сумму&raquo;
     </header>
-    <div id="content">
-        <div id="game">
-            <div id="sum">
+    <div id="wrap">
+        <div id="content">
+            <div id="game">
+                <div id="sum">
 
+                </div>
+                <div id="container">
+                    Контейнер
+                </div>
+                <div id="button">
+                    &#10004;
+                </div>
             </div>
-            <div id="container">
-                Контейнер
-            </div>
-            <div id="button">
-                &#10004;
+            <div id="answer">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>
+                            Игра №
+                        </th>
+                        <th>
+                            Попыток сделано
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody id="results">
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
