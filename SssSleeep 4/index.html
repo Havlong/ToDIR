@@ -1,0 +1,108 @@
+<!--Группа 18ВП2 Костерев Григорий 11 вариант-->
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JSlab</title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/script.js"></script>
+</head>
+<header>
+    Астрономия. Звёздны карты и координаты
+</header>
+<body>
+
+<div class="buttons">
+    <input type="button" id="button1" value="1" onclick="changeQuestion(0)">
+    <input type="button" id="button2" value="2" onclick="changeQuestion(1)">
+    <input type="button" id="button3" value="3" onclick="changeQuestion(2)">
+    <input type="button" id="button4" value="4" onclick="changeQuestion(3)">
+    <input type="button" id="button5" value="5" onclick="changeQuestion(4)">
+    <input type="button" id="button6" value="6" onclick="changeQuestion(5)">
+    <input type="button" id="button7" value="7" onclick="changeQuestion(6)">
+    <input type="button" id="button8" value="8" onclick="changeQuestion(7)">
+    <input type="button" id="button9" value="9" onclick="changeQuestion(8)">
+    <input type="button" id="button10" value="10" onclick="changeQuestion(9)">
+    <input type="button" id="startTest" value="Начать тест" onclick="start()">
+</div>
+
+<div class="all">
+
+    <table id="questionTable" cellpadding="3">
+        <tr>
+            <td>Вопрос:</td>
+            <td>Ответ:</td>
+        </tr>
+        <tr id="board">
+            <td id="ques">Здесь будет нарисован вопрос, но его пока что нету</td>
+            <td id="answ"></td>
+        </tr>
+    </table>
+
+</div>
+
+<div id="results">
+
+    <table id="resultTable" cellpadding="5">
+        <tr>
+            <td>Вопрос:</td>
+            <td>Вы ответили:</td>
+            <td>Правильный ответ:</td>
+        </tr>
+        <tr>
+            <td class="rQuestion">1:</td>
+            <td class="rPlayerAnswer"></td>
+            <td class="rRightAnswer"></td>
+        </tr>
+        <tr>
+            <td class="rQuestion">2:</td>
+            <td class="rPlayerAnswer"></td>
+            <td class="rRightAnswer"></td>
+        </tr>
+        <tr>
+            <td class="rQuestion">3:</td>
+            <td class="rPlayerAnswer"></td>
+            <td class="rRightAnswer"></td>
+        </tr>
+        <tr>
+            <td class="rQuestion">4:</td>
+            <td class="rPlayerAnswer"></td>
+            <td class="rRightAnswer"></td>
+        </tr>
+        <tr>
+            <td class="rQuestion">5:</td>
+            <td class="rPlayerAnswer"></td>
+            <td class="rRightAnswer"></td>
+        </tr>
+        <tr>
+            <td class="rQuestion">6:</td>
+            <td class="rPlayerAnswer"></td>
+            <td class="rRightAnswer"></td>
+        </tr>
+        <tr>
+            <td class="rQuestion">7:</td>
+            <td class="rPlayerAnswer"></td>
+            <td class="rRightAnswer"></td>
+        </tr>
+        <tr>
+            <td class="rQuestion">8:</td>
+            <td class="rPlayerAnswer"></td>
+            <td class="rRightAnswer"></td>
+        </tr>
+        <tr>
+            <td class="rQuestion">9:</td>
+            <td class="rPlayerAnswer"></td>
+            <td class="rRightAnswer"></td>
+        </tr>
+        <tr>
+            <td class="rQuestion">10:</td>
+            <td class="rPlayerAnswer"></td>
+            <td class="rRightAnswer"></td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>

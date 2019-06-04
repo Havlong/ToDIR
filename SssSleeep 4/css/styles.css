@@ -1,0 +1,51 @@
+body {
+    background-image: url("../images/background.jpg");
+}
+
+header {
+    font-size: 36px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+.all {
+    display: flex;
+    /*display: none;*/
+    color: white;
+}
+
+#questionTable {
+    width: 100%;
+    font-size: 36px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.buttons {
+    /*display: none;*/
+    margin-top: 75px;
+}
+
+#button {
+    /*display: none;*/
+}
+
+.activeButton {
+    background: aqua;
+}
+
+#results {
+    /*display: block;*/
+    display: none;
+    margin-top: 50px;
+    font-size: 28px;
+    color: white;
+}
+
+#resultTable {
+    border: 12px;
+    width: 100%;
+}
