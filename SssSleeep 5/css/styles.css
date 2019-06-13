@@ -1,0 +1,108 @@
+body {
+}
+header {
+}
+
+#content {
+    /*display: flex;*/
+    text-align: center;
+    /*margin: auto;*/
+    /*height: 400px;*/
+    /*width: 330px;*/
+}
+
+#game {
+    position: relative;
+    width: 335px;
+    height: 267px;
+    margin: auto;
+    /*background-color: #ffa955;*/
+}
+
+#input, #to_input {
+    /*position: absolute;*/
+    /*margin: auto;*/
+}
+
+#input {
+    display: flex;
+    margin: auto;
+}
+
+.inputS {
+    position: absolute;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    width: 100px;
+    height: 100px;
+    background: #8fe18e;
+    margin-right: 15px;
+}
+
+.inputSN {
+    font-size: 50px;
+}
+
+#to_input {
+    margin-top: 40px;
+    font-size: 40px;
+}
+
+.to_inputS {
+    position: absolute;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    width: 60px;
+    height: 60px;
+    background: #80698e;
+    margin-right: 7px;
+    margin-bottom: 7px;
+}
+
+#checkButton {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    margin: auto;
+    margin-top: 30px;
+    width: 180px;
+    height: 75px;
+    font-size: 60px;
+    background: blanchedalmond;
+}
+
+#buttons {
+    position: center;
+}
+
+#results {
+    position: absolute;
+    font-size: 30px;
+    top: 0px;
+}
+
+.number {
+    width: 100px;
+}
+
+.result {
+    /*width: 100px;*/
+}
+
+#nextButton {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    margin: auto;
+    margin-top: 20px;
+    width: 180px;
+    height: 75px;
+    font-size: 60px;
+    background: teal;
+}
